@@ -19,7 +19,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
-        <td><%= post.category_id %></td>
+        <td><%= link_to Category.find(post.category_id).name, category_path(post.category_id) %></td>
         <td><%= post.image %></td>
         <td><%= post.order %></td>
         <td><%= link_to 'Show', post %></td>
