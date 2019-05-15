@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+                <% @articles.limit(4).each do |article| %>
+                <!-- ========== Single Blog Post ========== -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-blog-post post-style-3 mt-50 wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <%= image_tag "b4.jpg" %>
+                            <!--<img src="img/blog-img/b4.jpg" alt="">-->
+                            <!-- Post Content -->
+                            <div class="post-content d-flex align-items-center justify-content-between">
+                                <!-- Catagory -->
+                                <div class="post-tag"><a href="#"><%= article.title %></a></div>
+                                <!-- Headline -->
+                                <a href="#" class="headline">
+                                    <h5><%= truncate(article.body, length: 70) %></h5>
+                                </a>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><a href="#" class="post-author"><%= article.author%></a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
