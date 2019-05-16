@@ -15,7 +15,7 @@
                         <!-- Logo -->
                         <!--<a class="navbar-brand" href="index.html"><img src="img/core-img/logo.png" alt="Logo"></a>-->
                         <%= link_to root_path do %>
-                            <%= image_tag "logo.png", class: "navbar-brand" %>
+                            <%= image_tag "thumbnail.png", class: "navbar-brand" %>
                         <% end %>
                         <!--<a class="navbar-brand" href="index.html"><h1>Logo</h1></a>-->
                         <!-- Navbar Toggler -->
@@ -35,15 +35,21 @@
                                     <!--<a class="nav-link" href="#">Accommodation</a>-->
                                 </li>
                                 <li class="nav-item">
-                                    <%= link_to "About Us", articles_path, class: "nav-link" %>
+                                    <%= link_to "Sales", articles_path, class: "nav-link" %>
                                     <!--<a class="nav-link" href="#">About Us</a>-->
                                 </li>
                                 <li class="nav-item">
                                     <%= link_to "Contact Us", articles_path, class: "nav-link" %>
                                     <!--<a class="nav-link" href="#">Contact Us</a>-->
                                 </li>
+                                
                                 <li class="nav-item">
-                                    <%= link_to "Info", articles_path, class: "nav-link" %>
+                                    <% if admin_signed_in? %>
+                                    <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link'%>
+                                      <% else %>
+                                    <%= link_to 'Sign In', new_admin_session_path, class: 'nav-link' %>
+                                <% end %>
+                                    <%#= link_to "Info", articles_path, class: "nav-link" %>
                                     <!--<a class="nav-link" href="#">Info</a>-->
                                 </li>
                             </ul>
