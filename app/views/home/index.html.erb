@@ -1,15 +1,28 @@
     <%= render 'layouts/header' %>
-    
+    <!-- ********** Hero Area Start ********** -->
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(<%= asset_path 'bg2.jpg' %>);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="single-blog-title text-center">
+                        <!-- Catagory -->
+                        <div class="post-cta"><%#= link_to Category.find(@post.category_id).name, category_path(@post.category_id) %></div>
+                        <h3><%#= @post.title %></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area">
 
         <!-- Hero Slides Area -->
-        <div class="hero-slides owl-carousel">
+        <!--<div class="hero-slides owl-carousel">-->
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);"></div>
+        <!--    <div class="single-hero-slide bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);"></div>-->
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url(img/blog-img/bg1.jpg);"></div>
-        </div>
+        <!--    <div class="single-hero-slide bg-img background-overlay" style="background-image: url(img/blog-img/bg1.jpg);"></div>-->
+        <!--</div>-->
 
         <!-- Hero Post Slide -->
         <div class="hero-post-area">
@@ -17,42 +30,17 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="hero-post-slide">
+                            <% @posts.limit(4).each do |post| %>
                             <!-- Single Slide -->
                             <div class="single-slide d-flex align-items-center">
                                 <div class="post-number">
-                                    <p>1</p>
+                                    <p>-</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="single-blog.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
+                                    <%= link_to post.title, post %>
                                 </div>
                             </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>2</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="single-blog.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>3</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="single-blog.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>4</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="single-blog.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -211,7 +199,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -261,7 +249,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -311,7 +299,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -361,7 +349,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -411,7 +399,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -461,7 +449,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -511,7 +499,7 @@
                                                     </a>
                                                     <!-- Post Meta -->
                                                     <div class="post-meta">
-                                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -539,7 +527,7 @@
                         </div>
 
                         <!-- Single Blog Post -->
-                        <% @articles.limit(4).each do |article| %>
+                        <% @articles.limit(3).each do |article| %>
                         <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail">
@@ -549,12 +537,12 @@
                             <!-- Post Content -->
                             <div class="post-content">
                                 <a href="#" class="headline">
-                                    <h5><%= article.title %></h5>
+                                    <h5><%= link_to article.title, article %></h5>
                                 </a>
                                 <p><%= truncate(article.body, length: 145) %></p>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <p><a href="#" class="post-author"><%= article.author%></a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                    <p><%= article.author%> on <%= time_ago_in_words(article.created_at) %> ago</p>
                                 </div>
                             </div>
                         </div>
@@ -566,7 +554,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="load-more-btn mt-50 text-center">
-                        <a href="#" class="btn world-btn">Load More</a>
+                        <%= link_to "Load More", articles_path, class: "btn world-btn" %>
+                        <!--<a href="#" class="btn world-btn">Load More</a>-->
                     </div>
                 </div>
             </div>
