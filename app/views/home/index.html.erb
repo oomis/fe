@@ -1,4 +1,4 @@
-    <%= render 'layouts/header' %>
+<%= render 'layouts/header' %>
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area height-600 bg-img background-overlay" style="background-image: url(<%= asset_path 'bg2.jpg' %>);">
         <div class="container h-100">
@@ -93,28 +93,28 @@
 
                                 <div class="tab-pane fade show active" id="world-tab-1" role="tabpanel" aria-labelledby="tab1">
                                     <div class="row">
-                                        <div class="col-12 col-md-6">
+                                        <!--<div class="col-12 col-md-6">-->
                                             <!-- Single Blog Post -->
-                                            <% @posts.limit(1).each do |post| %>
-                                            <div class="single-blog-post">
+                                        <!--    <%# @posts.limit(1).each do |post| %>-->
+                                        <!--    <div class="single-blog-post">-->
                                                 <!-- Post Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <%= image_tag "b1.jpg" %>
-                                                </div>
+                                        <!--        <div class="post-thumbnail">-->
+                                        <!--            <%#= image_tag "b1.jpg" %>-->
+                                        <!--        </div>-->
                                                 <!-- Post Content -->
-                                                <div class="post-content">
-                                                    <a href="#" class="headline">
-                                                        <h5><%= link_to post.title, post %></h5>
-                                                    </a>
-                                                    <p><%= truncate(post.body, length: 90) %></p>
+                                        <!--        <div class="post-content">-->
+                                        <!--            <a href="#" class="headline">-->
+                                        <!--                <h5><%#= link_to post.title, post %></h5>-->
+                                        <!--            </a>-->
+                                        <!--            <p><%#= truncate(post.body, length: 90) %></p>-->
                                                     <!-- Post Meta -->
-                                                    <div class="post-meta">
-                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <% end %>
-                                        </div>
+                                        <!--            <div class="post-meta">-->
+                                        <!--                <p><%#= time_ago_in_words(post.created_at) %> ago</p>-->
+                                        <!--            </div>-->
+                                        <!--        </div>-->
+                                        <!--    </div>-->
+                                        <!--    <%# end %>-->
+                                        <!--</div>-->
                                         <!--<div class="col-12 col-md-6">-->
                                             <!--<div class="world-catagory-slider owl-carousel wow fadeInUpBig" data-wow-delay="0.1s">-->
 
@@ -182,16 +182,39 @@
                                                 <!--</div>-->
                                             <!--</div>-->
                                         <!--</div>-->
-
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% @posts.limit(5).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
                                                 <!-- Post Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                    <%= image_tag "b18.jpg" %>
+                                                <!--<div class="post-thumbnail">-->
+                                                    <%#= image_tag "b18.jpg" %>
                                                     <!--<img src="img/blog-img/b10.jpg" alt="">-->
+                                                <!--</div>-->
+                                                <!-- Post Content -->
+                                                <div class="post-content">
+                                                    <a href="#" class="headline">
+                                                        <h5><td><%=link_to post.title, post %></td></h5>
+                                                    </a>
+                                                    <!-- Post Meta -->
+                                                    <div class="post-meta">
+                                                        <p><%= time_ago_in_words(post.created_at) %> ago</p>
+                                                    </div>
                                                 </div>
+                                            </div>
+                                            <% end %>
+                                        </div>
+                                        
+
+                                        <div class="col-12 col-md-6">
+                                            <% @posts.limit(5).each do |post| %>
+                                            <!-- Single Blog Post -->
+                                            <div class="single-blog-post post-style-2 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
+                                                <!-- Post Thumbnail -->
+                                                <!--<div class="post-thumbnail">-->
+                                                    <%#= image_tag "b18.jpg" %>
+                                                    <!--<img src="img/blog-img/b10.jpg" alt="">-->
+                                                <!--</div>-->
                                                 <!-- Post Content -->
                                                 <div class="post-content">
                                                     <a href="#" class="headline">
@@ -234,7 +257,8 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 1).each do |post| %>
+                                            <%# @posts.limit(4).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->
@@ -284,7 +308,7 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 2).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->
@@ -334,7 +358,7 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 3).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->
@@ -384,7 +408,7 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 4).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->
@@ -434,7 +458,7 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 5).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->
@@ -484,7 +508,7 @@
                                         </div>
 
                                         <div class="col-12 col-md-6">
-                                            <% @posts.limit(4).each do |post| %>
+                                            <% Post.where(category_id: 6).each do |post| %>
                                             <!-- Single Blog Post -->
                                             <div class="single-blog-post post-style-2 d-flex align-items-center">
                                                 <!-- Post Thumbnail -->

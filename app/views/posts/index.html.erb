@@ -18,7 +18,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.body %></td>
+        <td><%#= post.body %></td>
         <td><%= link_to Category.find(post.category_id).name, category_path(post.category_id) %></td>
         <td><%= post.image %></td>
         <td><%= post.order %></td>
